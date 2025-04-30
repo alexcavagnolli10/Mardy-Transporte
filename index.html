@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Caminhões à Venda</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
+    h1 { color: #333; }
+    .caminhao { border: 1px solid #ccc; padding: 10px; margin: 10px 0; background-color: white; }
+    input { padding: 10px; width: 100%; max-width: 400px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+
+  <h1>Caminhões à Venda</h1>
+  <input type="text" id="busca" placeholder="Buscar caminhão...">
+
+  <div class="caminhao">Volvo FH 540 - 2020</div>
+  <div class="caminhao">Scania R450 - 2021</div>
+  <div class="caminhao">Mercedes Axor 2544 - 2019</div>
+
+  <script>
+    const input = document.getElementById('busca');
+    const caminhoes = document.querySelectorAll('.caminhao');
+
+    input.addEventListener('input', () => {
+      const texto = input.value.toLowerCase();
+      caminhoes.forEach(c => {
+        const nome = c.textContent.toLowerCase();
+        c.style.display = nome.includes(texto) ? 'block' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>
